@@ -9,6 +9,8 @@ services:
     env_file: .env_docker
     volumes:
       - .:/sd
+      - ./models:/sd/models
+      - ./src:/sd/src
       - ./outputs:/sd/outputs
       - conda_env:/opt/conda
       - root_profile:/root
@@ -18,7 +20,7 @@ services:
       resources:
         reservations:
           devices:
-            - capabilities: [gpu]
+            - capabilities: [ gpu ]
 
 volumes:
   conda_env:
